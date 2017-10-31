@@ -96,3 +96,119 @@ git merge [branch]
 ```[git]
 git branch -d [branch-name]
 ```
+
+
+### NOMBRES DEL ARCHIVO DE REFACTORIZACIÓN
+#### Reubica y retira los archivos con versión
+
+* Borra el archivo del directorio y pone en el área de espera el archivo borrado.
+```[git]
+git rm [file]
+```
+
+* Retira el archivo del control de versiones, pero preserva el archivo a nivel local.
+```[git]
+git rm --cached[file]
+```
+
+* Cambia el nombre del archivo y lo prepara para commit
+```[git]
+git mv [file-original]file-renamed[]
+```
+
+### SUPRIMIR TRACKING
+#### Excluye los archivos temporales y las rutas
+
+```[git]
+*.log
+build/
+temp-*
+```
+* Un archivo de texto llamado **gitignore** suprime la creación accidental de versiones de archivos y rutas que concuerdan con los patrones especificados
+
+* Enumera a todos los archivos ignorados en este proyecto
+```[git]
+git ls-files --other --ignored --exclude-standard
+```
+
+### GUARDAR FRAGMENTOS
+#### Almacena y restaura cambios incompletos
+
+* Almacena temporalmente todos los archivos tracket modificados
+```[git]
+git stash
+```
+
+* Restaura los archivos guardados más recientemente
+```[git]
+git stash pop
+```
+
+* Enumera todos los sets de cambios en guardado rápido
+```[git]
+git stash list
+```
+
+* Elimina el set de cambios en guardado rápido más reciente
+```[git]
+git stash drop
+```
+
+### REPASAR HISTORIAL
+#### Navega e inspeciona la evolución de los archivos de proyecto
+
+* Enumera el historial de la versión para la rama actual
+```[git]
+git log
+````
+
+* Enumera el historial de versión para el archivo, incluidos los cambios
+```[git]
+git log --follow[file]
+```
+
+* Mustra las diferencias de contenido entre dos ramas.
+```[git]
+git diff[first-branch] ... [second-branch]
+```
+
+* Produce metadatos y cambios de contenido del commit especificado
+```[git]
+git show [commit]
+```
+
+### REHACER COMMITS
+#### Borrar errores y elabora historial de reemplazo
+
+* Deshace todos los commits después de **[commit]** ,preservando los cambios localmente
+```[git]
+git reset [commit]
+```
+
+* Desecha todo el historial y regresa el commit especificado
+```[git]
+git reset --hard [commit]
+```
+
+### SINCRONIZAR CAMBIOS
+#### Registra un marcador de repositorio e intercambiar historial de versión
+
+* Descarga todo el historial de marcador del repositorio
+```[git]
+git fetch [bookmark]
+```
+
+* Combina la rama del marcador con la rama actual
+```[git]
+git merge [bookmark]/[branch]
+```
+
+* Carga todos los commit de la rama local GitHub
+```[git]
+git push [alias][branch]
+```
+
+* Descarga el historial del marcador e incorpora cambios
+```[git]
+git pull
+```
